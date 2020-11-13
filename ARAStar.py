@@ -4,7 +4,8 @@ from random import randint
 import os
 import pygame
 
-from draw_map import *
+from map_ import *
+from node import *
 
 pygame.init()
 

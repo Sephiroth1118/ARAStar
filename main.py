@@ -1,6 +1,6 @@
 import pygame
 
-from map import *
+from map_ import *
 from node import *
 
 
