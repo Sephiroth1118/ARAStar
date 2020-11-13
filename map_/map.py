@@ -1,6 +1,5 @@
 import pygame
 import random
-from node import *
 
 MARGIN = 2
 [GRID_SIZE, GRID_X, GRID_Y] = [10, 50, 50]

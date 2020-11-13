@@ -1,7 +1,7 @@
 import pygame
 
 from map_ import *
-from node import *
+from node.node import Node
 
 
 
@@ -9,4 +9,5 @@ from node import *
 
 
 if __name__ == "__main__":
+    node1 = Node(1, 2, "a")
     pygame .init()
