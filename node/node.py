@@ -1,6 +1,3 @@
-import math
-
-
 class Node:
     def __init__(self, x, y, name):
         self.x = x
@@ -16,8 +13,8 @@ class Node:
 
     def getCost(self):
         if self.parent:
-            cost = int(math.sqrt((self.x - self.parent.x)**2 +
-                                 (self.y - self.parent.y)**2))
+            cost = int(abs(self.x - self.parent.x) +
+                       abs(self.y - self.parent.y))
         else:
             cost = 0
         return cost
