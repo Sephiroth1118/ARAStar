@@ -52,6 +52,7 @@ def getImprovedSolution(goal, open_list, epsilon, path_cost):
                 open_list.add(node)
     return None
 
+
 def ARAStar_solver(start, goal):
     open_list = set()
     closed_list = set()
@@ -60,6 +61,23 @@ def ARAStar_solver(start, goal):
     current_node = start
     current_node.H = getEstimateDistance(current_node, goal)
     open_list.add(current_node)
+    temp = max(open_list, key=lambda o: (path_cost - o.G) / o.H)
+    epsilon = 4e4
+    epsilon_delta = epsilon / 10.0
+
+    # 当open_list中依然有node的时候。
+    while open_list:
+        temp_list = open_list
+        new_solution = getImprovedSolution(goal, temp_list, epsilon, path_cost)
+        if new_solution:
+            path_cost = new_solution[-1].G
+            current_path = new_solution
+            time.sleep(0.5)
+        else:
+            return current_path
+        epsilon -= epsilon_delta
+    return current_path
+
 
 def solver(start, goal):
     openList = set()
