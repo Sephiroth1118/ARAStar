@@ -53,7 +53,7 @@ def getImprovedSolution(goal, open_list, epsilon, path_cost):
     return None
 
 
-def ARAStar_solver(start, goal):
+def ARAStarSolver(start, goal):
     open_list = set()
     closed_list = set()
     current_path = []

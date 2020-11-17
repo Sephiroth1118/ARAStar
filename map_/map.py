@@ -18,7 +18,7 @@ def drawRect(color, x, y, screen):
                       GRID_SIZE, GRID_SIZE])
 
 
-def drawMap(grid, start, goal, percent_chance_for_obstacle=10):
+def drawMap(grid, start, goal, screen, percent_chance_for_obstacle=10):
     for x in range(GRID_X):
         for y in range(GRID_Y):
             if grid[x][y] != start and grid[x][y] != goal:
@@ -46,14 +46,14 @@ def drawMap(grid, start, goal, percent_chance_for_obstacle=10):
                     getSouthEastGrid(grid, x, y, GRID_X, GRID_Y))
     for x in range(GRID_X):
         for y in range(GRID_Y):
-            if x == 0 and y == GRID_Y - 1:
-                drawRect(GREEN, x, y)
-            elif x == GRID_X - 1 and y == 0:
-                drawRect(RED, x, y)
+            if x == start.x and y == start.y:
+                drawRect(GREEN, x, y, screen)
+            elif x == goal.x and y == goal.y:
+                drawRect(RED, x, y, screen)
             elif grid[x][y].isObstacle:
-                drawRect(BLACK, x, y)
+                drawRect(BLACK, x, y, screen)
             else:
-                drawRect(WHITE, x, y)
+                drawRect(WHITE, x, y, screen)
 
 
 def getNorthGrid(grid, x, y, GRID_Y):
